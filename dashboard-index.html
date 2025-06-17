@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="v.png" type="image/x-icon">
+    <title>VoyageVerse-Travel Wishlist Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="dashboard-style.css">
+    <script type="module" src="dashboard-firebaseauth.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="left-section">
+            <img src="Black Simple Travel Logo (2).png" id="logo">
+        </div>
+        <div class="middle-section">
+        <a class="icons" href="index.html">Home</a>
+        <a class="icons" href="#">Gallery</a>
+        <a class="icons" href="review-page-index.html">Review</a>
+        <a class="icons" href="#">About</a>
+      </div>
+        <div class="right-section">
+          <div class="dropdown-box">
+             <button class="profile-btn" onclick="toggleDropDown()">
+              <i class="fa-solid fa-user"></i>
+             
+              <ul id="menu" > 
+                
+                <li id="email"></li>
+                <li id="logout"><a href="index.html">Logout</a></li>
+              </ul>
+             </button > 
+
+            </div>
+        </div>
+      </header>
+
+    <section class="hero-section">
+        <img src="sign in img.avif" class="background-img">
+        <h1 id="catchy-line">
+            "The World is Yours to Explore- Start Today!"
+          </h1>
+        </section>
+
+    <div class="description">
+        <h1>Welcome to VoyageVerse!</h1>
+        <p>Hey explorer! Are you planning your next big trip? You are at right place. 
+          We are here to help you in exploring world, planning adventurous trips.</p>
+        <ul>
+          <li>Share your Experiences</li>
+          <li>Discover Amazing destinations</li>
+          <li>Create your Travel Wishlist</li>          
+        </ul>
+        <p>and much more.</p>
+        <button >
+        <a href="wishlist-page-index.html">My wishlist
+          </a>
+        </button>
+        <button >
+          <a href="destination-details-index.html"> Explore 
+            </a>
+          </button>
+        
+      </div>
+
+      <div class="destination-container">
+        <h2>Popular Destinations</h2>
+      <div id="destinations">
+       
+      </div>
+      
+    </div>
+    <script src="dashboard-app.js"></script>
+</body>
+</html>

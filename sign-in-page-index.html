@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="v.png" type="image/x-icon">
+    <title>Register & Login</title>
+    <link rel="stylesheet" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="sign-in-page-style.css">
+    <script type="module" src="sign-in-page-firebaseauth.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="left-section">
+            <img id="logo" src="Black Simple Travel Logo (2).png">
+        </div>
+        <div class="middle-section">
+            <a class="icons" href="index.html">Home</a>
+            <a class="icons" href="#">About</a>
+            <a class="icons" href="#">Contact</a>
+        </div>
+        <div class="right-section">
+            <button id="login-btn" >Sign In</button>
+            <button id="register-btn">Sign Up</button>
+        </div>
+    </div>
+   <div class="form-box">
+     <div class="container" id="signup" style="display:none;">
+        <h1 class="form-title">Register</h1>
+        <form method="post" action="">
+          <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+          <div class="input-group">
+           
+             
+             <input type="text"  id="fName" class="input-field" placeholder="First Name" required>
+             <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="input-group">
+            
+              
+              <input type="text"  id="lName" class="input-field" placeholder="Last Name" required>
+              <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="input-group">
+            
+              <input type="email"  id="rEmail" class="input-field" placeholder="Email" required>
+              <i class="fa-regular fa-envelope"></i>
+
+              
+          </div>
+          <div class="input-group">
+            
+              <input type="password" id="rPassword" class="input-field"   placeholder="Password" required>
+              <i class="fa-solid fa-lock"></i>
+
+              
+          </div>
+         <button class="btn" id="submitSignUp" >Sign Up</button>
+        </form>
+        <div class="links">
+            <p>Already Have Account ?</p>
+            <button id="signInButton" >Sign In</button>
+          </div>
+        </div>
+
+        <div class="container" id="signIn">
+            <h1 class="form-title">Sign In</h1>
+            <form method="post" action="">
+              <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+    
+              <div class="input-group">
+                  
+                  <input type="email"  id="email" class="input-field" placeholder="Email" required>
+                  <i class="fa-regular fa-envelope"></i>
+
+
+              </div>
+              <div class="input-group">
+                  
+                <input type="password" id="password" class="input-field"  placeholder="Password" required>
+                <i class="fa-solid fa-lock"></i>
+
+              </div>
+              
+             <button  class="btn"  id="submitSignIn">Sign In</button>
+            </form>
+            
+           
+            <div class="links">
+              <p>Don't have account yet?</p>
+              <button id="signUpButton">Sign Up</button>
+            </div>
+          </div>
+        </div>
+
+       <script src="sign-in-page-app.js"></script>
+</body>

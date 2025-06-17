@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="v.png" type="image/x-icon">
+    <title>VoyageVerse | Review </title>
+    <link rel="stylesheet" href="review-page-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script type="module" src="review-page-firebaseauth.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="left-section">
+            <img src="Black Simple Travel Logo (2).png" id="logo">
+        </div>
+        <div class="middle-section">
+        <a class="icons" href="dashboard-index.html">Home</a>
+        <a class="icons" href="wishlist-page-index.html">Wishlist</a>
+        <a class="icons" href="sign-in-page-index.html">About</a>
+       
+        </div>
+        <div class="right-section">
+          <div class="dropdown-box">
+             <button class="profile-btn" onclick="toggleDropDown()">
+              <i class="fa-solid fa-user"></i>
+             
+              <ul id="menu" > 
+                
+                <li id="email"></li>
+                <li id="logout"><a href="index.html">Logout</a></li>
+              </ul>
+             </button > 
+
+            </div>
+        </div>
+    </div>
+    <h1 class="heading">Share your Travel Experience here!</h1>
+    <div class="review-container">
+        <h2>Write Your Experience : </h2>
+        <form class="review-form">
+            <input type="text" id="destination" placeholder="destination" required>
+            <textarea id="review" name="review" rows="5" placeholder="write your review" required></textarea>
+             
+                <input type="file" id="photo" placeholder="upload image" accept="image/*" >
+                
+            <button >Submit</button>
+        </form>
+    </div>
+    
+    </div>
+<script src="review-page-app.js"></script>
+</body>
+</html>
