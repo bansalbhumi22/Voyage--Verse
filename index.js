@@ -63,7 +63,8 @@ fetchImages();
 
 setInterval(fetchImages, 10000);
 
-const headerbtn= document.querySelector(".btn-head");
+const loginBtn= document.querySelector("#login-btn");
+const signUpBtn1 =document.querySelector("#sign-up-btn");
 const signInBtn= document.querySelector("#sign-in");
 const signUpBtn= document.querySelector("#sign-up");
 function signInPage(){
@@ -71,7 +72,7 @@ function signInPage(){
 }
 
 
-
-headerbtn.addEventListener("click",signInPage);
+signUpBtn1.addEventListener("click",signInPage);
+loginBtn.addEventListener("click",signInPage);
 signInBtn.addEventListener("click",signInPage);
 signUpBtn.addEventListener("click",signInPage);

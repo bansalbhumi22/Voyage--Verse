@@ -2,6 +2,7 @@ const accessKey = "qDPS6Xpg8ile2T-qeT4noCjFsleUxvmDBZSvS7hYNKY";
 const destinationImg = document.querySelector("#destinations"); 
 const places = ["Paris", "New York", "Italy", "Australia", "India", "Egypt", "Japan","Canada", "Brazil", "South Africa", "Thailand", "Spain","Germany", "Russia", "Mexico", "Turkey", "Greece", "Switzerland", "Netherlands", "Sweden","Norway","Finland", "Denmark", "Portugal", "Ireland", "Belgium", "Austria", "Poland", "Czech Republic", "Hungary", "Croatia", ];
 
+
 function chooseDestination(){
    let destinations=new Set();
        while(destinations.size<7){
@@ -62,4 +63,7 @@ async function fetchImages() {
 fetchImages();
 
 setInterval(fetchImages, 10000);
+
+
+
 

@@ -78,6 +78,40 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+.wishlist-btn{
+    position:absolute;
+    top:60%;
+   left:36%;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+     background-color:transparent;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+     font-size:2.5vh;
+     width:25vw;
+     padding:5px;
+     
+     border-radius:20px;
+     cursor:pointer;
+    
+}
+
+.wishlist-btn a{
+    color:white;
+    text-decoration:none;
+}
+
+.wishlist-btn:hover a{
+    color:black;
+
+}
+
+.wishlist-btn:hover{
+    transform: scale(1.05);
+    
+    background-color: white;
+
+}
+
 .fa-user {
     
     height:40px;
@@ -225,7 +259,7 @@ body {
     border-color: rgba(111, 109, 109, 0.8) ;
     display: none;
     width: 300px;
-    
+    list-style-type:none;
 }
 
 #menu li a{
@@ -238,3 +272,9 @@ body {
 }
 
 
+.profile-des{
+    display:flex;
+    flex-direction:row;
+    gap: 15px;
+    justify-content: center;
+}

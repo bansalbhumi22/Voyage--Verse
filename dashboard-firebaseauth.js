@@ -19,21 +19,28 @@ const profileBtn= document.querySelector(".profile-btn");
 const menu= document.querySelector("#menu");
 const email= document.querySelector("#email");
 const logout= document.querySelector("#logout");
-
+const profilePhoto= document.querySelector("#profile-photo");
+const username= document.querySelector("#username");
 
 
 profileBtn.addEventListener("click", ()=>{
     menu.style.display= menu.style.display=== "none"? "block": "none" ;
 });
 
+
+
+
 auth.onAuthStateChanged((user) => {
     if (user) {
       
       
       const displayEmail= user.email || "No Email";
+      
 
       
       email.textContent= `${displayEmail}`
+       console.log(user); 
+
     }else{
         window.location.href= "sign-in-page-index.html";
        

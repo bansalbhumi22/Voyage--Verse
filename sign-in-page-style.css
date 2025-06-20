@@ -2,7 +2,8 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"poppins",sans-serif;}
+    font-family:"poppins",sans-serif;
+}
 
 
     .header{
@@ -21,7 +22,7 @@
     }
     
     body{
-        background: url("wishlist-pg\ img.jpg" );
+        background:url(wishlist-pg\ img.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
