@@ -7,37 +7,33 @@
     <title>VoyageVerse | wishlist</title>
     <link rel="stylesheet" href="wishlist-page-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    
-   
-
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="left-section">
             <img src="Black Simple Travel Logo (2).png" id="logo">
-        </div>
-        <div class="middle-section">
-        <a class="icons" href="dashboard-index.html">Home</a>
-        <a class="icons" href="review-page-index.html">Review</a>
-        <a class="icons" href="#">Tools</a>
+
         </div>
         <div class="right-section">
-          <div class="dropdown-box">
-             
-              <i class="fa-solid fa-user"></i>
-             
-              
-             </button > 
+            <a class="icons" href="dashboard-index.html">Home</a>
+            <a class="icons" href="#">About</a>
 
-            </div>
-        </div>
+        </div> 
+    </header>
+
+    <h1 id="wishlist-heading">My Travel Wishlist</h1>
+    <h2 id="catchy-line">"A glimpse of the places my heart wants to explore!" </h2>
+
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search for a place...">
+    <button id="search-btn" >
+        <i class="fa-solid fa-magnifying-glass"></i>
+     </button>
     </div>
-    <h1 class="heading">Your Dream Travel Wishlist</h1>
-    <div class="add-wishlist">
-        <input type="text" id="destination-name" placeholder="Enter a destination">
-        <button id="add-btn">Add to wishlist</button>
-    </div>
-    <div id="wishlist"></div>
-    <script type="module" src="wishlist-page-app.js"></script>
+    
+   <div class="wishlist-container">
+    
+   </div>
+    <script src="wishlist-page-app.js"></script>
 </body>
 </html>
