@@ -6,6 +6,7 @@ const searchbtn= document.querySelector("#search-btn");
 
 
 
+
 async function fetchImages(){
     try{
         
@@ -37,6 +38,9 @@ async function fetchImages(){
                 card.innerHTML = `
                     <img src="${imgUrl}">
                     <h3>${destinationname}</h3>
+                    <button class= "delete-btn" onClick="localStorage.removeItem('${destinationname}'); location.reload();">
+                    <i class="fa-solid fa-trash"></i>
+                    </button>
                 `;
                 destinationimg.appendChild(card);
             }
@@ -51,8 +55,9 @@ async function fetchImages(){
 }
      
  if(localStorage.length>1){
-    for(let idx=1;idx<localStorage.length; idx++){
-             const card = document.createElement("div");
+    for(let idx=0;idx<localStorage.length; idx++){
+        if(localStorage.key(idx)!="loggedInUserId"){
+            const card = document.createElement("div");
                 card.classList.add("card");
                   const url= JSON.parse(localStorage.getItem(localStorage.key(idx)));
 
@@ -64,20 +69,23 @@ async function fetchImages(){
                     </button>
                 `;
                 destinationimg.appendChild(card);
+        }
+             
                 
                 }
- }    
+  }    
          
-     
+     searchbtn.addEventListener("click", ()=>{
+    console.log(place.value);
+    fetchImages();
+    place.value="";
+     }
+)
                
-    searchbtn.addEventListener("click", function(){
-         fetchImages();
-         place.value= "";
-         
-    }
-       );
+   
     window.addEventListener("keydown", function(e){
         if(e.key === "Enter"){
+            console.log(place.value);
             fetchImages();
             place.value="";
         }
