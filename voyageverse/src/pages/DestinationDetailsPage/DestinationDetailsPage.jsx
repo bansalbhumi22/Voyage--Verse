@@ -60,10 +60,10 @@ export default function DestinationDetailsPage() {
 
   async function handleSearch() {
     const term = query.trim()
-    if (!term) return
+    if (!term) { window.alert('Please enter a destination name.'); return }
     // case-insensitive match
     const match = destKeys.find(k => k.toLowerCase() === term.toLowerCase())
-    if (match) { loadDestination(match) } else { setNotFound(true); setSuggestions([]) }
+    if (match) { loadDestination(match) } else { window.alert('Details not found for this destination.'); setNotFound(true); setSuggestions([]) }
   }
 
   function handleKeyDown(e) {
@@ -98,6 +98,7 @@ export default function DestinationDetailsPage() {
             {currentDestination}
           </h1>
           <p className="text-white/70 text-lg italic">Uncover the magic of {currentDestination}</p>
+          <p className="text-white/50 text-sm">Explore {currentDestination}!</p>
 
           {/* Search */}
           <div className="relative w-full max-w-md mt-2">
@@ -108,7 +109,7 @@ export default function DestinationDetailsPage() {
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Search a destination..."
+                placeholder="Search destination"
                 value={query}
                 onChange={handleQueryChange}
                 onKeyDown={handleKeyDown}
@@ -117,7 +118,7 @@ export default function DestinationDetailsPage() {
               <button
                 onClick={handleSearch}
                 className="flex items-center justify-center h-8 w-8 rounded-full bg-yellow-400 hover:bg-yellow-300 transition-all shadow-[0_0_12px_rgba(250,204,21,0.5)]"
-                aria-label="Search"
+                aria-label="🔍"
               >
                 {loading ? (
                   <svg className="animate-spin h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

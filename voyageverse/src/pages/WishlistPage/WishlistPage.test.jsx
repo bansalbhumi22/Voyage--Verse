@@ -6,7 +6,12 @@ import { render, screen, waitFor, fireEvent, cleanup, within } from '@testing-li
 import userEvent from '@testing-library/user-event';
 import fc from 'fast-check';
 import WishlistPage from './WishlistPage.jsx';
+import { ThemeProvider } from '../../context/ThemeContext.jsx';
 import * as unsplashService from '../../services/unsplashService.js';
+
+function renderWithTheme(ui) {
+  return render(<ThemeProvider>{ui}</ThemeProvider>);
+}
 
 // Helper: clear localStorage and restore mocks between tests
 beforeEach(() => {
@@ -22,14 +27,14 @@ afterEach(() => {
 
 describe('WishlistPage unit tests', () => {
   test('renders search bar and search button', () => {
-    render(<WishlistPage />);
+    renderWithTheme(<WishlistPage />);
     expect(document.querySelector('#search-bar')).toBeTruthy();
     expect(document.querySelector('#search-btn')).toBeTruthy();
   });
 
   test('does not add card when Unsplash returns no image', async () => {
     vi.spyOn(unsplashService, 'fetchImage').mockResolvedValue(null);
-    render(<WishlistPage />);
+    renderWithTheme(<WishlistPage />);
 
     const input = document.querySelector('#search-bar');
     const btn = document.querySelector('#search-btn');
@@ -74,7 +79,7 @@ describe('Property 8: Wishlist localStorage round trip', () => {
             localStorage.setItem(destination, JSON.stringify(imgUrl));
           }
 
-          const { container, unmount } = render(<WishlistPage />);
+          const { container, unmount } = renderWithTheme(<WishlistPage />);
           const view = within(container);
 
           // Each destination should appear as an alt text on an img
@@ -124,7 +129,7 @@ describe('Property 9: Wishlist item deletion removes from localStorage and UI', 
           const deleteIndex = deleteIndexRaw % unique.length;
           const toDelete = unique[deleteIndex];
 
-          const { container, unmount } = render(<WishlistPage />);
+          const { container, unmount } = renderWithTheme(<WishlistPage />);
           const view = within(container);
 
           // Wait for items to render
@@ -177,7 +182,7 @@ describe('Property 10: Search input cleared after successful wishlist add', () =
           vi.restoreAllMocks();
           vi.spyOn(unsplashService, 'fetchImage').mockResolvedValue(imgUrl);
 
-          const { unmount } = render(<WishlistPage />);
+          const { unmount } = renderWithTheme(<WishlistPage />);
 
           const input = document.querySelector('#search-bar');
           const btn = document.querySelector('#search-btn');

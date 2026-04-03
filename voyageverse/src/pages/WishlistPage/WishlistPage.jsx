@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { fetchImage } from '../../services/unsplashService.js'
 import WishlistItem from '../../components/WishlistItem/WishlistItem.jsx'
 import worldMap from '../../assets/world-map.png'
+import wishlistBg from '../../assets/wishlist-bg.jpg'
 import { useTheme } from '../../context/ThemeContext'
 
 const BUDGET_KEY = '__vv_budgets__'
@@ -76,7 +77,7 @@ function WishlistPage() {
   const cardBorder = light ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.12)'
 
   return (
-    <div className={`min-h-screen pt-[60px] relative ${bg}`}>
+    <div className={`min-h-screen pt-[60px] relative ${bg}`} style={light ? {} : { background: `url(${wishlistBg})` }}>
       {/* Background — only in dark mode */}
       {!light && <>
         <div

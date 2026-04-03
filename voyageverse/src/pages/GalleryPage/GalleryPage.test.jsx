@@ -63,7 +63,7 @@ describe('GalleryPage property tests', () => {
           // For each category that should have a card, verify caption text is present
           for (const [idx] of byIndex) {
             const category = galleryCategories[idx];
-            expect(screen.getByText(category)).toBeTruthy();
+            expect(screen.getAllByText(category).length).toBeGreaterThanOrEqual(1);
           }
 
           unmount();

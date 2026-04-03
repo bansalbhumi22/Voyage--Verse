@@ -1,29 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import heroBg from '../../assets/hero-bg.avif'
-import DestinationCard from '../../components/DestinationCard/DestinationCard'
-import { fetchImages, chooseDestinations } from '../../services/unsplashService'
+import DestinationsCarousel from '../../components/DestinationsCarousel/DestinationsCarousel'
 
 export default function LandingPage() {
-  const [cards, setCards] = useState([])
-
   useEffect(() => {
     AOS.init({ duration: 700, once: false, easing: 'ease-in-out' })
-  }, [])
-
-  useEffect(() => {
-    async function loadCards() {
-      const results = await fetchImages(chooseDestinations())
-      setCards(results)
-      AOS.refresh()
-    }
-
-    loadCards()
-
-    const interval = setInterval(loadCards, 10000)
-    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -71,19 +55,7 @@ export default function LandingPage() {
         >
           Popular Destinations
         </h2>
-        <div id="destinations" className="flex justify-center flex-row flex-wrap gap-5">
-          {cards.map(({ destination, imgUrl }, index) =>
-            imgUrl ? (
-              <div
-                key={destination}
-                data-aos="fade-up"
-                data-aos-delay={String((index % 4) * 100)}
-              >
-                <DestinationCard destination={destination} imgUrl={imgUrl} />
-              </div>
-            ) : null
-          )}
-        </div>
+        <DestinationsCarousel />
       </div>
     </div>
   )

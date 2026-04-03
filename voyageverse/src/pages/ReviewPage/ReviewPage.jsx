@@ -244,7 +244,6 @@ function ReviewPage() {
       setError('Please fill in the destination and your experience.')
       return
     }
-    if (form.rating === 0) { setError('Please rate your experience.'); return }
     setError('')
     const avatar = AVATARS[Math.floor(Math.random() * AVATARS.length)]
     setReviews(prev => [{ ...form, avatar, id: Date.now() }, ...prev])
@@ -298,6 +297,7 @@ function ReviewPage() {
 
               {/* Destination */}
               <input
+                id="destination"
                 type="text" placeholder="Destination visited *"
                 value={form.destination}
                 onChange={e => setForm(p => ({ ...p, destination: e.target.value }))}
@@ -351,6 +351,7 @@ function ReviewPage() {
 
               <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Your message</p>
               <textarea
+                id="review"
                 placeholder="Dear fellow traveler, let me tell you about my journey..."
                 value={form.message}
                 onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
@@ -360,7 +361,7 @@ function ReviewPage() {
               />
 
               {error && <p className="text-red-400 text-xs mt-2">{error}</p>}
-              {submitted && <p className="text-green-400 text-xs mt-2">✓ Postcard sent! Your story is live below.</p>}
+              {submitted && <p className="text-green-400 text-xs mt-2">✓ Postcard submitted successfully! Your story is live below.</p>}
 
               <button type="submit"
                 className="mt-4 self-start px-6 py-2.5 rounded-full text-sm font-bold text-black bg-yellow-400 hover:bg-yellow-300 hover:scale-105 transition-all shadow-[0_0_16px_rgba(250,204,21,0.4)]">

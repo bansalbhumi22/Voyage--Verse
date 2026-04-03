@@ -34,11 +34,11 @@ export async function fetchImages(destinations) {
 }
 
 /**
- * Pick 7 unique random entries from the places array.
+ * Pick 12 unique random entries from the places array.
  */
 export function chooseDestinations() {
   const chosen = new Set();
-  while (chosen.size < 7) {
+  while (chosen.size < 12) {
     const idx = Math.floor(Math.random() * places.length);
     chosen.add(places[idx]);
   }

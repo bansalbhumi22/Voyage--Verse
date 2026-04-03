@@ -2,6 +2,7 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest'
 import { render } from '@testing-library/react'
 import WishlistPage from './WishlistPage.jsx'
+import { ThemeProvider } from '../../context/ThemeContext.jsx'
 
 // Mock unsplashService
 vi.mock('../../services/unsplashService.js', () => ({
@@ -18,7 +19,7 @@ describe('WishlistPage background image (Requirement 9.3)', () => {
   })
 
   test('applies wishlist background image via inline style on root element', () => {
-    const { container } = render(<WishlistPage />)
+    const { container } = render(<ThemeProvider><WishlistPage /></ThemeProvider>)
     const root = container.firstChild
     expect(root.style.background).toContain('wishlist-bg.jpg')
   })

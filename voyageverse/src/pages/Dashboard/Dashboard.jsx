@@ -1,27 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import heroBg from '../../assets/hero-bg.avif'
-import DestinationCard from '../../components/DestinationCard/DestinationCard'
-import { fetchImages, chooseDestinations } from '../../services/unsplashService'
+import worldMap from '../../assets/world-map.png'
+import DestinationsCarousel from '../../components/DestinationsCarousel/DestinationsCarousel'
 
 export default function Dashboard() {
-  const [cards, setCards] = useState([])
-
   useEffect(() => {
     AOS.init({ duration: 700, once: false, easing: 'ease-in-out' })
-  }, [])
-
-  useEffect(() => {
-    async function loadCards() {
-      const results = await fetchImages(chooseDestinations())
-      setCards(results)
-      AOS.refresh()
-    }
-    loadCards()
-    const interval = setInterval(loadCards, 10000)
-    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -38,6 +25,11 @@ export default function Dashboard() {
           src={heroBg}
           alt="hero background"
           className="w-full h-full object-cover brightness-[0.55]"
+        />
+        <img
+          src={worldMap}
+          alt="world map background"
+          className="hidden"
         />
         {/* Gradient fade at bottom */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60" />
@@ -118,27 +110,7 @@ export default function Dashboard() {
           Popular Destinations
         </h2>
 
-        {/* Responsive grid — 4 cols desktop, 2 tablet, horizontal scroll mobile */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {cards.map(({ destination, imgUrl }, index) =>
-            imgUrl ? (
-              <div key={destination} data-aos="fade-up" data-aos-delay={String((index % 4) * 80)}>
-                <DestinationCard destination={destination} imgUrl={imgUrl} />
-              </div>
-            ) : null
-          )}
-        </div>
-
-        {/* Mobile horizontal scroll */}
-        <div className="flex sm:hidden gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-hide">
-          {cards.map(({ destination, imgUrl }) =>
-            imgUrl ? (
-              <div key={destination} className="snap-start shrink-0 w-[260px]">
-                <DestinationCard destination={destination} imgUrl={imgUrl} />
-              </div>
-            ) : null
-          )}
-        </div>
+        <DestinationsCarousel />
       </section>
     </div>
   )
